@@ -1,0 +1,622 @@
+/* Prevents flicker before ScrollReveal loads */
+.v3-card, .glass-contact, .package-banner, .hero-text-side {
+    visibility: hidden;
+}
+:root {
+    --bg: #ffffff;
+    --black: #121212;
+    --nude-pink: #fdf1f2;
+    --accent-pink: #f4cfd2;
+    --soft-pink: #fce4ec;
+    --grey: #f8f8f8;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Montserrat', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg);
+    color: var(--black);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Floating WhatsApp Mobile */
+.whatsapp-sticky {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--black);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.whatsapp-sticky img { width: 20px; filter: invert(1); }
+
+/* Navigation v3 */
+.v3-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+.logo-group{
+
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.logo-group>div{
+    
+}
+.main-logo{
+    font-family:var(--font-serif);
+    font-size: 30px;
+    color: #333
+}
+.menu-links a {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Hero v3 - Asymmetric */
+.v3-hero {
+    display: flex;
+    height: 100vh;
+    align-items: stretch;
+}
+
+.hero-image-side {
+    flex: 1;
+    background: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80') center/cover;
+    display: none; /* Hidden on mobile, shown on desktop */
+}
+
+.hero-text-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 10%;
+    background: var(--nude-pink);
+}
+
+.hero-text-side h1 {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    line-height: 1.1;
+    margin: 1.5rem 0;
+}
+
+.hero-text-side i { font-weight: 400; color: #d4a5a9; }
+
+.tagline { text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; opacity: 0.7; }
+.package-banner {
+    margin-top: 5rem;
+    margin-right: 100px;
+    margin-left: 100px;
+    
+    background: var(--soft-pink);
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 8px solid var(--black);
+}
+
+.package-info h3 {
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', serif;
+    font-size: 18.72px; /* Përshtatur për hierarki */
+}
+
+.package-info p {
+    font-size: 1rem;
+    color: var(--black);
+}
+
+.package-badge {
+    background: var(--black);
+    color: white;
+    padding: 1rem;
+    font-weight: 700;
+    transform: rotate(3deg);
+    white-space: nowrap;
+    
+}
+
+/* Për pajisjet mobile */
+@media (max-width: 768px) {
+    .package-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+}
+.btn-minimal {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+    background: var(--black);
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: 0.4s;
+}
+
+/* Services Grid */
+.v3-services { padding: 100px 5%; }
+
+.section-intro { text-align: center; margin-bottom: 4rem; }
+.section-intro h2 { font-family: var(--font-serif); font-size: 3rem; }
+.divider { width: 50px; height: 2px; background: var(--black); margin: 20px auto; }
+
+.v3-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px;
+    background: #eee; /* Grid line effect */
+}
+
+.v3-card {
+    background: white;
+    padding: 3rem;
+    position: relative;
+    transition: 0.3s;
+}
+
+.v3-card:hover { background: var(--nude-pink); }
+
+.category-num { font-size: 0.7rem; color: #ccc; display: block; margin-bottom: 1rem; }
+
+.v3-card h3 { font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 1.5rem; }
+
+.service-list { list-style: none; }
+.service-list li {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.service-list li span { font-size: 0.7rem; opacity: 0.5; font-style: italic; }
+
+.dark-card { background: var(--black); color: white; }
+.dark-card h3 { color: var(--accent-pink); }
+.dark-card .service-list li { border-color: #333; }
+
+/* Package Section */
+.v3-packages { padding: 50px 5%; }
+.package-card {
+    background: var(--grey);
+    padding: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.discount-label {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.btn-outline {
+    padding: 10px 25px;
+    border: 1px solid var(--black);
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 600;
+}
+
+/* Footer v3 */
+.v3-footer {
+    background: #fff;
+    padding: 100px 5% 50px;
+    border-top: 1px solid #eee;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.footer-brand h2 { font-family: var(--font-serif); font-size: 2.5rem; letter-spacing: 5px; }
+
+.c-box { margin-bottom: 20px; }
+.c-box strong { display: block; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; color: #999; }
+.c-box a { color: var(--black); text-decoration: none; }
+
+.footer-bottom { border-top: 1px solid #eee; padding-top: 30px; text-align: center; font-size: 0.7rem; opacity: 0.5; }
+
+/* Responsive */
+@media (min-width: 992px) {
+    .hero-image-side { display: block; }
+}
+
+@media (max-width: 768px) {
+    .hero-text-side h1 { font-size: 2.8rem; }
+    .footer-top { flex-direction: column; gap: 40px; }
+}/* --- Glassmorphism Footer Integration --- */
+
+.footer-v2 {
+    background: var(--black);
+    padding: 12rem 5% 4rem; /* Increased top padding for the glass box overlap */
+    text-align: center;
+    color: white;
+    margin-top: 100px;
+}
+
+.glass-contact {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 4rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 900px;
+    margin: -16rem auto 4rem; /* Pulls the box up into the previous section */
+    position: relative;
+    z-index: 10;
+}
+
+.glass-contact h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.contact-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem; 
+    margin: 3rem 0; 
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--accent-pink);
+    margin-bottom: 1rem;
+}
+
+.info-item strong { 
+    display: block; 
+    color: var(--accent-pink); 
+    font-size: 0.7rem; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem; 
+}
+
+.info-item a, .info-item span { 
+    color: white; 
+    text-decoration: none; 
+    font-size: 1rem; 
+    font-weight: 300;
+}
+
+.whatsapp-float-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25d366;
+    color: white;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float-btn:hover {
+    transform: scale(1.05);
+}
+
+.footer-bottom { 
+    opacity: 0.4; 
+    font-size: 0.7rem; 
+    margin-top: 4rem; 
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .glass-contact {
+        margin-top: -12rem;
+        padding: 3rem 1.5rem;
+    }
+    .contact-grid { 
+        grid-template-columns: 1fr; 
+        gap: 2.5rem;
+    }
+    .footer-v2 {
+        padding-top: 10rem;
+    }
+}
+.icon{
+    font-size: 25px;
+}
+#image-logo{
+    width: 70px;
+    height: 70px;
+    margin: 0;
+}
+/* --- About Section (v3) --- */
+.v3-about {
+    padding: 100px 5%;
+    background-color: var(--grey);
+}
+
+.container-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8%;
+}
+
+.about-image-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Cool, Strange "Blob" Shape */
+.blob-mask {
+    width: 100%;
+    max-width: 450px;
+    height: 450px;
+    background: var(--nude-pink);
+    overflow: hidden;
+    
+    /* Using a complex, organic border-radius shape */
+    border-radius: 64% 36% 70% 30% / 50% 70% 30% 50%;
+    
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+    transition: 0.5s ease-in-out;
+}
+
+.blob-mask:hover {
+    /* Subtle change on hover for interactivity */
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.1);
+}
+
+.blob-mask img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-text-side {
+    flex: 1;
+}
+
+.about-text-side h2 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    margin-top: 0.5rem;
+}
+
+.about-text-side i {
+    display: block;
+    color: #d4a5a9;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.about-text-side .divider {
+    margin: 0 0 2rem 0;
+    width: 60px;
+}
+
+.about-text-side p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+/* Mobile Responsiveness for About Page */
+@media (max-width: 992px) {
+    .container-split {
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+    }
+    
+    .blob-mask {
+        max-width: 350px;
+        height: 350px;
+    }
+    
+    .about-text-side .divider {
+        margin: 20px auto;
+    }
+}
+/* --- Stilet për Seksionin e Zgjeruar "Rreth Meje" --- */
+
+/* Blloku i Certifikatave */
+.certificates-block {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.5); /* Sfond i bardhë i tejdukshëm */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.certificates-block h3 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.cert-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cert-icon {
+    font-size: 1.5rem;
+    color: var(--accent-pink); /* Ngjyra e theksuar rozë */
+}
+
+.cert-item p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0; /* Heqim margin e poshtëm për rreshtim */
+}
+
+/* Rregullime për hapësirën */
+.about-text-side p {
+    margin-bottom: 1rem; /* Zvogëlojmë hapësirën midis paragrafëve */
+}
+
+/* Për pajisjet mobile */
+@media (max-width: 992px) {
+    .certificates-block {
+        text-align: left; /* Mbajmë rreshtimin majtas për certifikata */
+    }
+    
+    .cert-grid {
+        grid-template-columns: 1fr; /* Një kolonë në mobile */
+    }
+}
+/* --- About Section (v3) - Versione Ottimizzata --- */
+.v3-about {
+    padding: 100px 5%;
+    background-color: var(--grey);
+    margin-top: 100px;
+}
+
+.container-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8%;
+}
+
+.about-image-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Cool, Strange "Blob" Shape - GRANDE PER PC */
+.blob-mask {
+    width: 100%;
+    max-width: 550px; /* Aumentato da 450px a 550px per PC */
+    aspect-ratio: 1 / 1; /* Forza la forma a rimanere proporzionata */
+    background: var(--accent-pink);
+    overflow: hidden;
+    
+    /* La tua bellissima forma strana */
+    border-radius: 64% 36% 70% 30% / 50% 70% 30% 50%;
+    
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+    transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    height:600px;
+}
+
+.blob-mask:hover {
+    border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%; /* Cambia forma dolcemente */
+    transform: scale(1.02);
+}
+
+.blob-mask img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-text-side {
+    flex: 1;
+}
+
+/* ... (resto dei tuoi stili h2, i, divider rimangono uguali) ... */
+
+/* --- RESPONSIVE / MOBILE FIX --- */
+@media (max-width: 992px) {
+    .v3-about {
+        padding: 60px 5%;
+        
+    }
+
+    .container-split {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about-image-side {
+        width: 100%;
+        order: -1; /* Mette sempre l'immagine sopra il testo in mobile */
+    }
+
+    .blob-mask {
+        max-width: 400px; /* Dimensione perfetta per smartphone */
+        width: 100%; /* Prende buona parte dello schermo */
+        margin: 0 auto;
+        /* Manteniamo la forma strana anche in mobile */
+        border-radius: 64% 36% 70% 30% / 50% 70% 30% 50%; 
+        height: 400px;
+    }
+    
+    .about-text-side h2 {
+        font-size: 2.2rem;
+    }
+
+    .about-text-side .divider {
+        margin: 20px auto;
+    }
+    
+    .certificates-block {
+        text-align: left;
+        margin: 2rem 0;
+        padding: 1.5rem;
+    }
+}
+#kleon-logo{
+    height: 20px;
+}
