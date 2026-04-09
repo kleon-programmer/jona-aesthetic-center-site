@@ -633,3 +633,58 @@ body {
 #kleon-logo{
     height: 20px;
 }
+/* --- Hamburger Menu (Desktop: Nascosto) --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1100; /* Deve stare sopra il drawer */
+}
+
+.bar {
+    width: 28px;
+    height: 3px;
+    background-color: var(--black); /* Assicurati che var(--black) sia definita */
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Mobile Logic (Sotto i 768px) --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Inizia fuori schermo */
+        width: 75%;
+        height: 100vh;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+        z-index: 1050;
+    }
+
+    /* Stato Attivo: il menu entra */
+    .menu-links.active {
+        right: 0;
+    }
+
+    /* Animazione Barrette -> X */
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}

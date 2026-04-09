@@ -40,3 +40,26 @@ sr.reveal('.info-item', {
 });
 const thisYear = new Date().getFullYear();
 document.getElementById("year").textContent=`${thisYear}-${thisYear+1}`
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('#mobile-menu');
+    const navMenu = document.querySelector('#nav-menu');
+    const navLinks = document.querySelectorAll('.menu-links a');
+
+    // Apre/Chiude il menu al click sulle barrette
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('is-active');
+        navMenu.classList.toggle('active');
+        
+        // Blocca lo scroll della pagina quando il menu è aperto
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    // Chiude il menu quando clicchi su un link (per scorrere alla sezione)
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuBtn.classList.remove('is-active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+});
